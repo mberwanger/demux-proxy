@@ -28,12 +28,12 @@ tidy:
 .PHONY: tidy
 
 # Upgrade non-test dependencies for the Go module
-bump-deps: check
+bump-deps:
 	go get -u ./...
 .PHONY: bump-deps
 
 # Upgrade all dependencies for the Go module
-bump-deps-full: check
+bump-deps-full:
 	go get -t -u ./...
 .PHONY: bump-deps-full
 
