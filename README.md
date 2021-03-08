@@ -1,5 +1,7 @@
 # Demultiplexer Proxy
-Demux Proxy is a MITM proxy server that round-robins request over multiple public ip address. This proxy enables you to aggregate data from an external source where that downstream service is rate limiting based on IP address. For example, the number of IP addresses per network interface for a m5.xlarge is the following
+Demux Proxy is a MITM proxy server that round-robins request over multiple public ip address. This proxy enables you to aggregate data from an external source where that downstream service is rate limiting based on IP address. 
+
+For example, the number of IP addresses per network interface for a m5.xlarge is the following
 
 | Instance type | Maximum network interfaces | Private IPv4 addresses per interface |
 |---------------|----------------------------|--------------------------------------|
