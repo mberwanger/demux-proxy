@@ -27,7 +27,7 @@ jobs:
       - name: Make Setup
         run: |
           make setup
-      - name: Run linter
+      - name: Run Linter
         uses: golangci/golangci-lint-action@v2
         with:
           skip-go-installation: true

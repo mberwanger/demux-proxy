@@ -48,7 +48,7 @@ func newRootCmd(version string, exit func(int)) *rootCmd {
 	}
 	var cmd = &cobra.Command{
 		Use:           "demux-proxy",
-		Short:         "Proxy that takes a single input and then switches it to any one of a number of interfaces",
+		Short:         "Proxy that takes a single input and then switches it to any one of a number of net interfaces",
 		Version:       version,
 		SilenceUsage:  true,
 		SilenceErrors: true,

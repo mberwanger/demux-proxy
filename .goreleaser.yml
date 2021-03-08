@@ -9,7 +9,6 @@ builds:
     goos:
       - linux
       - darwin
-      - windows
     goarch:
       - 386
       - amd64
@@ -28,12 +27,8 @@ archives:
     replacements:
       darwin: Darwin
       linux: Linux
-      windows: Windows
       386: i386
       amd64: x86_64
-    format_overrides:
-      - goos: windows
-        format: zip
     files:
       - README.md
 checksum:
