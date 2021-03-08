@@ -53,10 +53,6 @@ lint:
 	misspell -error **/*
 .PHONY: lint
 
-# Run all the tests and code checks
-ci: build test vet lint
-.PHONY: ci
-
 # Build a beta version of updog
 build:
 	go build

@@ -27,9 +27,10 @@ jobs:
       - name: Make Setup
         run: |
           make setup
-      - name: Make CI
-        run: |
-          make ci
+      - name: Run linter
+        uses: golangci/golangci-lint-action@v2
+        with:
+          skip-go-installation: true
       - name: Check GoReleaser config
         uses: goreleaser/goreleaser-action@v2
         with:
