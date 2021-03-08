@@ -9,6 +9,7 @@ export GOPROXY = https://proxy.golang.org,direct
 # Install all the build and lint dependencies
 setup:
 	go mod download
+	go generate -v ./...
 .PHONY: setup
 
 # Run all the tests
@@ -21,9 +22,29 @@ cover: test
 	go tool cover -html=coverage.txt
 .PHONY: cover
 
-# gofmt and goimports all go files
+# Clean up the Go module files
+tidy:
+	go mod tidy
+.PHONY: tidy
+
+# Upgrade non-test dependencies for the Go module
+bump-deps: check
+	go get -u ./...
+.PHONY: bump-deps
+
+# Upgrade all dependencies for the Go module
+bump-deps-full: check
+	go get -t -u ./...
+.PHONY: bump-deps-full
+
+# Inspect the source code for potential issues
+vet:
+	go vet ./...
+.PHONY: vet
+
+# Format source code to meet the language standards
 fmt:
-	find . -name '*.go' | while read -r file; do gofmt -w -s "$$file"; done
+	go fmt ./...
 .PHONY: fmt
 
 # Run all the linters
@@ -33,7 +54,7 @@ lint:
 .PHONY: lint
 
 # Run all the tests and code checks
-ci: build test lint
+ci: build test vet lint
 .PHONY: ci
 
 # Build a beta version of updog
